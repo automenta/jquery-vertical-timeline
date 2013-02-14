@@ -162,14 +162,19 @@
         timelineConfig.timelineTemplate);
       
       /**
-       * Handle data loaded in from Tabletop, then render.
+       * Handle data loaded in from Tabletop or directly, then render.
        */
       verticalTimeline.setupTimeline = function(data, tabletop) {
         var postTemplate  = Handlebars.compile(timelineConfig.postTemplate);
         var groupMarkerTemplate  = Handlebars.compile(timelineConfig.groupMarkerTemplate);
-        
+
+        // Check for data
+        if (tabletop) {
+          data = tabletop.sheets(timelineConfig.sheetName).all();
+        }
+
         // Go through data from the sheet.
-        $.each(tabletop.sheets(timelineConfig.sheetName).all(), function(i, val) {
+        $.each(data, function(i, val) {
           // Create groups (by year or whatever)
           groups = timelineConfig.groupFunction(val, groups, timelineConfig.defaultDirection);
     
@@ -391,27 +396,43 @@
         $line.height(lineHeight)
           .css('left', xOffset + 'px');
       };
+      
+      /**
+       * Parse each row of data
+       */
+      verticalTimeline.parseRow = function(el) {
+        // Map the columns.  Tabletop removes spaces.
+        $.each(timelineConfig.columnMapping, function(key, column) {
+          column = column.split(' ').join('');
+          if (el[column]) {
+            el[key] = el[column];
+          }
+        });
+        
+        // Parse out the date
+        el['timestamp'] = Date.parse(el['date']);
+        return el;
+      };
     
       /**
-       * Get data via Tabletop and then start rendering.
+       * If data is provided directy, the process it manually,
+       * otherwise get data via Tabletop and then start rendering.
        */
-      Tabletop.init({
-        key: timelineConfig.key,
-        callback: verticalTimeline.setupTimeline,
-        wanted: [timelineConfig.sheetName],
-        postProcess: function(el) {
-          // Map the columns.  Tabletop removes spaces.
-          $.each(timelineConfig.columnMapping, function(key, column) {
-            column = column.split(' ').join('');
-            if (el[column]) {
-              el[key] = el[column];
-            }
-          });
-          
-          // Parse out the date
-          el['timestamp'] = Date.parse(el['date']);
-        }
-      });
+      if ($.isArray(timelineConfig.data) && timelineConfig.data.length > 0) {
+        data = [];
+        $.each(timelineConfig.data, function(k, d) {
+          data.push(verticalTimeline.parseRow(d));
+        });
+        verticalTimeline.setupTimeline(data, false);
+      }
+      else {
+        Tabletop.init({
+          key: timelineConfig.key,
+          callback: verticalTimeline.setupTimeline,
+          wanted: [timelineConfig.sheetName],
+          postProcess: verticalTimeline.parseRow
+        });
+      }
     });  
   };  
 

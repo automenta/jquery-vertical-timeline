@@ -59,6 +59,8 @@ Call timeline with options.  Note that the ```key``` is the ID of the Google Spr
       });
     </script>
     
+You can also use JSON data directly.  See options below.
+    
 ## Options
 
 The following options can be passed to the plugin when called:
@@ -119,6 +121,9 @@ The following options can be passed to the plugin when called:
 * ```timelineTemplate```: HTML template for the timeline and middle line.
   * Data type: string
   * Default value: (see code)
+* ```data```: A javascript array of objects that can be substitued for getting data from a Google Spreadsheet.  See the ```example.json``` file for an example structure of the data.
+  * Data type: object
+  * Default value: [none]
   
 ## Building
 
