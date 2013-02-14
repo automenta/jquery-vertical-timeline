@@ -21,6 +21,10 @@
   <h1>Vertical Timeline Example 2</h1>
   <div class="timeline-jquery-example-2">
   </div>
+  
+  <h1>Vertical Timeline Example 3</h1>
+  <div class="timeline-jquery-example-3">
+  </div>
 
   <!-- Include scripts -->
   <script type="text/javascript" src="js/libs/jquery-1.7.1.min.js"></script>
@@ -45,6 +49,13 @@
         defaultExpansion: 'collapsed',
         groupFunction: 'groupSegmentByDecade',
         width: '50%'
+      });
+      
+      $.getJSON('./example.json', function(data) {
+        $('.timeline-jquery-example-3').verticalTimeline({
+          data: data,
+          width: '75%'
+        });
       });
     });
   </script>
