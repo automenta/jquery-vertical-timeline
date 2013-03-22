@@ -16,7 +16,7 @@ Create a Google Spreadsheet with the following columns (see options for differen
 * body 
 * read more url
 
-**Please note that the the _display date_ column must be in the format _Month day, Year_ (April 25, 2012) for proper javascript parsing.**
+**Please note that the the _date_ column must be in the format _Month Day, Year_ (April 25, 2012) for proper javascript parsing.  The _display date_ is just how it is displayed.**
 
 **Also, all columns must be _plain text_ format, including the two date columns.**
 
