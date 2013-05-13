@@ -134,11 +134,13 @@ Building is only done for specific versions; it simply combines all the librarie
 
     bash build.sh
 
-## Bugs 
+## Bugs and hacks
 
 * IE7 has some styling issues.
 * The original sharing code did not work anymore so that is currently removed.
 * Please use the [issue queue](https://github.com/MinnPost/jquery-vertical-timeline/issues) to report any more bugs.
+* Currently, Tabletop.js extends Array so that indexOf is available.  This has some implications in browsers, especially in the context of for..in loops.  Because of bad code may be in your site that is not easily updatable, we are using a [custom version of Tabletop.js](https://github.com/zzolo/tabletop).  See [pull request](https://github.com/jsoma/tabletop/pull/15).
+
 
 ## Credits
 
