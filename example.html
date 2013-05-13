@@ -25,11 +25,15 @@
   <h1>Vertical Timeline Example 3</h1>
   <div class="timeline-jquery-example-3">
   </div>
+  
+  <h1>Vertical Timeline Example 4</h1>
+  <div class="timeline-jquery-example-4">
+  </div>
 
   <!-- Include scripts -->
   <script type="text/javascript" src="js/libs/jquery-1.7.1.min.js"></script>
   <script type="text/javascript" src="js/libs/handlebars-1.0.rc.1.min.js"></script>
-  <script type="text/javascript" src="js/libs/tabletop.master-20121204.min.js"></script>
+  <script type="text/javascript" src="js/libs/tabletop-zzolo.master-20130402.min.js"></script>
   <script type="text/javascript" src="js/libs/jquery.isotope.v1.5.21.min.js"></script>
   <script type="text/javascript" src="js/libs/jquery.ba-resize.v1.1.min.js"></script>
   <script type="text/javascript" src="js/libs/jquery.imagesloaded.v2.1.0.min.js"></script>
@@ -56,6 +60,14 @@
           data: data,
           width: '75%'
         });
+      });
+      
+      $('.timeline-jquery-example-4').verticalTimeline({
+        key: '0AjYft7IGrHzNdHVTTi1xRGtpdHV5SzJDZW4yRnlRN2c',
+        sheetName: 'Entries',
+        tabletopOptions: {
+          parameterize: 'http://gs-proxy.herokuapp.com/proxy?url='
+        }
       });
     });
   </script>

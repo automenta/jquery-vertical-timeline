@@ -21,6 +21,14 @@
   <h1>Vertical Timeline Example 2</h1>
   <div class="timeline-jquery-example-2">
   </div>
+  
+  <h1>Vertical Timeline Example 3</h1>
+  <div class="timeline-jquery-example-3">
+  </div>
+  
+  <h1>Vertical Timeline Example 4</h1>
+  <div class="timeline-jquery-example-4">
+  </div>
 
   <!-- Include scripts -->
   <script type="text/javascript" src="js/libs.combined.min.js"></script>
@@ -39,6 +47,21 @@
         defaultDirection: 'oldest',
         defaultExpansion: 'collapsed',
         groupFunction: 'groupSegmentByDecade'
+      });
+      
+      $.getJSON('./example.json', function(data) {
+        $('.timeline-jquery-example-3').verticalTimeline({
+          data: data,
+          width: '75%'
+        });
+      });
+      
+      $('.timeline-jquery-example-4').verticalTimeline({
+        key: '0AjYft7IGrHzNdHVTTi1xRGtpdHV5SzJDZW4yRnlRN2c',
+        sheetName: 'Entries',
+        tabletopOptions: {
+          parameterize: 'http://gs-proxy.herokuapp.com/proxy?url='
+        }
       });
     });
   </script>

@@ -7,7 +7,7 @@ cat js/libs/jquery-1.7.1.min.js > js/libs.combined.min.js
 echo >> js/libs.combined.min.js
 cat js/libs/handlebars-1.0.rc.1.min.js >> js/libs.combined.min.js
 echo >> js/libs.combined.min.js
-cat js/libs/tabletop.master-20121204.min.js >> js/libs.combined.min.js
+cat js/libs/tabletop-zzolo.master-20130402.min.js >> js/libs.combined.min.js
 echo >> js/libs.combined.min.js
 cat js/libs/jquery.isotope.v1.5.21.min.js >> js/libs.combined.min.js
 echo >> js/libs.combined.min.js

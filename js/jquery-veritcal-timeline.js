@@ -433,7 +433,7 @@
           wanted: [timelineConfig.sheetName],
           postProcess: verticalTimeline.parseRow
         }, timelineConfig.tabletopOptions);
-      
+        
         Tabletop.init(ttOptions);
       }
     });  
