@@ -21,6 +21,7 @@
       gutterWidth: 56,
       width: 'auto',
       handleResize: false,
+      tabletopOptions: {},
       columnMapping: {
         'title': 'title',
         'date': 'date',
@@ -426,12 +427,14 @@
         verticalTimeline.setupTimeline(data, false);
       }
       else {
-        Tabletop.init({
+        var ttOptions = $.extend({
           key: timelineConfig.key,
           callback: verticalTimeline.setupTimeline,
           wanted: [timelineConfig.sheetName],
           postProcess: verticalTimeline.parseRow
-        });
+        }, timelineConfig.tabletopOptions);
+      
+        Tabletop.init(ttOptions);
       }
     });  
   };  

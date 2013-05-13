@@ -124,6 +124,9 @@ The following options can be passed to the plugin when called:
 * ```data```: A javascript array of objects that can be substitued for getting data from a Google Spreadsheet.  See the ```example.json``` file for an example structure of the data.
   * Data type: object
   * Default value: [none]
+* ```tabletopOptions```: Overrided tabletop options.  See [Tabletop project](https://github.com/jsoma/tabletop).
+  * Data type: object
+  * Default value: ```{}```
   
 ## Building
 
