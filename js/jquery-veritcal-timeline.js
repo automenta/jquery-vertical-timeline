@@ -30,10 +30,10 @@
         'caption': 'caption',
         'body': 'body',
         'read_more_url': 'read more url',
-        'title': 'title'
+  'css': 'css'
       },
       postTemplate: ' \
-        <div class="item post"> \
+          <div class="{{css}} item post"> \
           <div class="inner"> \
             <div class="timestamp">{{timestamp}}</div> \
             <div class="title"><h3>{{title}}</h3></div> \
